@@ -1,4 +1,5 @@
 require 'csv'
+require 'pp'
 require_relative 'person'
 
 class PersonParser
@@ -14,6 +15,8 @@ class PersonParser
     else
       @people = parse_people_objects_from_file
     end
+    pp @people
+    p '*' * 50
     @people.flatten
   end
 
@@ -32,6 +35,17 @@ class PersonParser
 end
 
 
-# driver code
-test = PersonParser.new('people.csv')
-p test.people[0]
+# frank driver code
+# test = PersonParser.new('people_fake_data.csv')
+# p test.people[0]
+
+# dom driver code
+
+people = {}
+# DRIVER
+    CSV.foreach("people_fake_data.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
+      people[row.fields[0]] = Hash[row.headers[0..-1].zip(row.fields[0..-1])]
+    end
+
+
+pp people
