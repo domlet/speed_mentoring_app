@@ -17,7 +17,7 @@ class PersonParser
     end
   end
 
-  def create_people_objects
+  def people_objects
     people.map! {|person| Person.new(person)}
   end
 
@@ -35,8 +35,8 @@ end
 
 
 # frank driver code
-test = PersonParser.new('people_fake_data.csv')
-pp test.create_people_objects
+# test = PersonParser.new('people_fake_data.csv')
+# pp test.people_objects
 
 # dom driver code
 
