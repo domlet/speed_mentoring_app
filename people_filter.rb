@@ -12,4 +12,10 @@ module PeopleFilter
     self.would_like_to_be_a == "both"
   end
 
+  def available?
+    self.times_available.any? do |time|
+      time == "Morning" || time == "Afternoon" || time = "Evening"
+    end
+  end
+
 end
