@@ -25,11 +25,11 @@ class Matcher
     mentees.each {|mentee| mentee.matches = mentors}
   end
 
-  # def match_times_available
-  #   people.each do |person|
-  #     person.times_available
-  #   end
-  # end
+  def match_times_available
+    people.each do |person|
+       pp person.can_attend_mentoring_sessions
+    end
+  end
 
 end
 
@@ -38,9 +38,9 @@ test_people = PersonParser.new('people_fake_data.csv')
 matcher = Matcher.new(test_people.people_objects)
 matcher.pair_mentors_with_mentees
 matcher.pair_mentees_with_mentors
+matcher.match_times_available
 
-
-pp matcher.people[0].times_available
+# pp matcher.people[0].times_available
 
 # Test return value for pairing methods
 # puts matcher.mentees[0].matches

@@ -13,8 +13,9 @@ module PeopleFilter
   end
 
   def available?
-    self.times_available.any? do |time|
-      time == "Morning" || time == "Afternoon" || time = "Evening"
+    self.format_times_available
+    self.can_attend_mentoring_sessions.any? do |time|
+      time == "Morning" || time == "Afternoon" || time == "Evening"
     end
   end
 
