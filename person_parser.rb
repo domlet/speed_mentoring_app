@@ -26,6 +26,8 @@ class PersonParser
   def parse_people_from_file
     people = []
     CSV.foreach(@file, :headers => true, :header_converters => :symbol, :converters => :all) do |row|
+      row.map {|field| field[1].nil? ? field[1] : field[1].strip!}
+      # row.each {|field| pp field[1]}
       people << Hash[row.headers[0..-1].zip(row.fields[0..-1])]
     end
     people
