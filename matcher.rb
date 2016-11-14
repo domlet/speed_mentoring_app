@@ -73,21 +73,28 @@ matcher.match_mentor_interests
 matcher.match_mentee_interests
 
 
+##########################################
+
+# The indices for the mentors/mentees are hard-coded in values (currently at 0)
+# Test different id values to see that the returned mentor/mentee arrays are accurate
+
+##########################################
+
 # Test return value for pairing methods
 puts "#{matcher.people.length} people are available out of #{people.length}"
 # should be 12 mentees and 13 mentors
 # around seven people put both
-puts "Out of #{matcher.mentees.length} total mentees, these match for mentor #{matcher.mentors[8].first_name}\n\n"
+puts "Out of #{matcher.mentees.length} total mentees, these match for mentor #{matcher.mentors[0].first_name}\n\n"
 
-matcher.mentors[8].matches.each do |match|
+matcher.mentors[0].matches.each do |match|
   puts match.first_name
   # puts "#{match.first_name} #{match.seeking_expertise_in}"
 end
 puts "*" * 10
 
-puts "Out of #{matcher.mentors.length} total mentors, these match for mentee #{matcher.mentees[8].first_name}\n\n"
+puts "Out of #{matcher.mentors.length} total mentors, these match for mentee #{matcher.mentees[0].first_name}\n\n"
 
-matcher.mentees[8].matches.each do |match|
+matcher.mentees[0].matches.each do |match|
   puts match.first_name
   # puts "#{match.first_name} #{match.has_expertise_in}"
 end
