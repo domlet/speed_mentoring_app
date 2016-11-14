@@ -22,14 +22,15 @@ class Matcher
   def pair_mentors_with_mentees
     puts mentors.length
     mentors.each do |mentor|
-      mentor.matches = mentees
       puts mentor.first_name
-      puts mentor.matches.length
     end
   end
 
   def pair_mentees_with_mentors
-    mentees.each {|mentee| mentee.matches = mentors}
+    puts mentees.length
+    mentees.each do |mentee|
+      puts mentee.first_name
+    end
   end
 
   def match_times_available
@@ -53,8 +54,8 @@ matcher.pair_mentees_with_mentors
 
 # Only some people get matched and other do not
 
-puts matcher.people[0].first_name
-puts matcher.people[0].matches
+# puts matcher.people[0].first_name
+# puts matcher.people[0].matches
 
 # Test return value for pairing methods
 puts "#{matcher.people.length} people are available out of #{people.length}"

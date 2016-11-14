@@ -20,3 +20,29 @@ module PeopleFilter
   end
 
 end
+
+# Current return values
+
+# Mentors:
+# Jonah
+# Jackson
+# Jorden
+# Kendall
+# Blossom
+# Hedda
+# Emerald
+# Joy
+
+# Mentees:
+# Amethyst
+# Jonah
+# Jackson
+# Blossom
+# Tyler
+# Avram
+# Emerald
+# Xaviera
+# Lani
+
+# Not included:
+# McKenzie - 3 (mentee), Lamar - 5 (mentee), Keegan - 6 (mentee), Marshall - 7 (mentor)
