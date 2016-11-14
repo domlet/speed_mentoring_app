@@ -20,16 +20,16 @@ class Matcher
   # fix method so that it assigns value to matches (should be an Array)
   # Not returning the right size of mentors or matches
   def pair_mentors_with_mentees
-    puts mentors.length
     mentors.each do |mentor|
-      puts mentor.first_name
+      mentor.matches = mentees
+      mentor.matches.delete(mentor) if mentor.matches.include?(mentor)
     end
   end
 
   def pair_mentees_with_mentors
-    puts mentees.length
     mentees.each do |mentee|
-      puts mentee.first_name
+      mentee.matches = mentors
+      mentee.matches.delete(mentee) if mentee.matches.include?(mentee)
     end
   end
 
@@ -55,22 +55,22 @@ matcher.pair_mentees_with_mentors
 # Only some people get matched and other do not
 
 # puts matcher.people[0].first_name
-# puts matcher.people[0].matches
+# puts matcher.people[0].matche
 
 # Test return value for pairing methods
 puts "#{matcher.people.length} people are available out of #{people.length}"
 # should be 12 mentees and 13 mentors
 # around seven people put both
-puts "Out of #{matcher.mentees.length} matches, these match for #{matcher.mentees[2].first_name}\n\n"
+puts "Out of #{matcher.mentees.length} total mentees, these match for #{matcher.mentors[2].first_name}\n\n"
 
-matcher.people[2].matches.each do |match|
+matcher.mentors[2].matches.each do |match|
   puts match.first_name
 end
 puts "*" * 22
 
-puts "Out of #{matcher.mentors.length} matches, these match for #{matcher.mentors[2].first_name}\n\n"
+puts "Out of #{matcher.mentors.length} total mentors, these match for #{matcher.mentees[2].first_name}\n\n"
 
-matcher.people[2].matches.each do |match|
+matcher.mentees[2].matches.each do |match|
   puts match.first_name
 end
 
