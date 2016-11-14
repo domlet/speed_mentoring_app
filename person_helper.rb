@@ -10,4 +10,12 @@ module PersonHelper
     end
   end
 
+  def seeking_expertise_in
+    self.is_interested_in_learning.split(/\s*,\s*/)
+  end
+
+  def has_expertise_in
+    self.has_skills.split(/\s*,\s*/)
+  end
+
 end
