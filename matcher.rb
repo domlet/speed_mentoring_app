@@ -84,19 +84,22 @@ matcher.match_mentee_interests
 puts "#{matcher.people.length} people are available out of #{people.length}"
 # should be 12 mentees and 13 mentors
 # around seven people put both
-puts "Out of #{matcher.mentees.length} total mentees, these match for mentor #{matcher.mentors[0].first_name}\n\n"
+matcher.people.each do |person|
 
-matcher.mentors[0].matches.each do |match|
-  puts match.first_name
-  # puts "#{match.first_name} #{match.seeking_expertise_in}"
+  puts "Out of #{matcher.people.length} total people, these mentees match for mentor #{person.first_name}\n\n"
+
+  person.matches.each do |match|
+    puts match.first_name
+    # puts "#{match.first_name} #{match.seeking_expertise_in}"
+  end
 end
-puts "*" * 10
 
-puts "Out of #{matcher.mentors.length} total mentors, these match for mentee #{matcher.mentees[0].first_name}\n\n"
 
-matcher.mentees[0].matches.each do |match|
-  puts match.first_name
-  # puts "#{match.first_name} #{match.has_expertise_in}"
-end
+# puts "Out of #{matcher.mentors.length} total mentors, these match for mentee #{matcher.mentees[0].first_name}\n\n"
+
+# matcher.mentees[0].matches.each do |match|
+#   puts match.first_name
+#   # puts "#{match.first_name} #{match.has_expertise_in}"
+# end
 
 
